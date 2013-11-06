@@ -153,7 +153,6 @@ echo 'Data Tidak Ditemukan';
 @mysql_close($res);
 }
 }
-
 /**
 * Fungsi untuk menghasilkan form penambahan/pengubahan
 * @param string root parameter menu
@@ -165,6 +164,7 @@ if (isset($_POST['nim']) && $_POST['nim'] ) {
 // Jika tidak disertai id, berarti insert baru
 if (!$id) {
 // Lengkapi Pernyataan PHP SQL untuk INSERT data
+$sql = "insert into mahasiswa values ('".$_POST["nim"]."', '".$_POST["nama"]."', '".$_POST["alamat"]."')";
 $res = mysql_query($sql);
 if ($res) { ?>
 <script type="text/javascript">
@@ -176,9 +176,12 @@ echo 'Gagal menambah data';
 }
 } else {
 // Lengkapi Pernyataan PHP SQL untuk UPDATE data
+$sql = "UPDATE mahasiswa SET nama='".$_POST["nama"]."', alamat='".$_POST["alamat"]."' WHERE nim=" .$id;
 $res = mysql_query($sql);
 if ($res) { ?>
-// Lengkapi script untuk redireksi ke root
+<script type="text/javascript">
+document.location.href="<?php echo $root;?>";
+</script>
 <?php
 } else {
 echo 'Gagal memodifikasi';

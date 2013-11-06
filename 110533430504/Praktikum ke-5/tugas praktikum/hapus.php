@@ -24,7 +24,7 @@
         $id = $_GET['id'];
         if ($id)
         {
-            $query = mysql_query("DELETE FROM maha WHERE nim=$id");
+            $query = mysql_query("DELETE FROM mahasiswa WHERE nim=$id");
             header("Location:".$_SERVER['PHP_SELF']);
         }
     ?>

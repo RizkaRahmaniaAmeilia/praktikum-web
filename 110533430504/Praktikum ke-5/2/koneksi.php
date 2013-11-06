@@ -4,7 +4,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = 'debian';
-$db = 'mysql';
+$db = 'myweb';
 $cnn = mysql_connect($host, $user, $pass);
 if (!$cnn) {
 exit('Koneksi Gagal');
